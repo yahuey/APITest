@@ -1,2 +1,2 @@
 # APITest
-This is to help me understand APIs. 
+This is to help me understand APIs with Python
