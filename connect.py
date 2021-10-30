@@ -43,12 +43,14 @@ def movie_query(new_keyword):
     # This is to get a specific ID that we need. I really wanted to test my knowledge of nested lists and dictionaries.
     return res_dogs_dict
 
-
 def display_data(search_dict):
     df = pd.DataFrame(search_dict["results"])
     print(df)
 
-user_keyword = get_query()
-clean_keyword = prepped_input(user_keyword)
-query_dict = movie_query(clean_keyword)
-display_data(query_dict)
+def main():
+    user_keyword = get_query()
+    clean_keyword = prepped_input(user_keyword)
+    query_dict = movie_query(clean_keyword)
+    display_data(query_dict)
+# running the data through here. Just cleaner
+main()
