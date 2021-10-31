@@ -43,14 +43,21 @@ def movie_query(new_keyword):
     # This is to get a specific ID that we need. I really wanted to test my knowledge of nested lists and dictionaries.
     return res_dogs_dict
 
+# Here we are looking at the results only for a cleaner search, then saving them as a csv format to be looked at.
 def display_data(search_dict):
     df = pd.DataFrame(search_dict["results"])
+    html = df.to_csv()
     print(df)
+    return html
 
+# This is to run the program as a main for cleanliness sake. We're saving things too for our save as a search the person entered.
 def main():
     user_keyword = get_query()
     clean_keyword = prepped_input(user_keyword)
     query_dict = movie_query(clean_keyword)
-    display_data(query_dict)
+    export = display_data(query_dict)
+    web = open(f"{user_keyword}.csv", "w")
+    web.write(export)
+    web.close()
 # running the data through here. Just cleaner
 main()
