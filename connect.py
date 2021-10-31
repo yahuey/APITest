@@ -34,21 +34,21 @@ def movie_query(new_keyword):
     # for troubleshooting purposes
     print(req1.status_code)
     # Saving the JSON data into a variable
-    res_dogs_json = req1.text
+    init_json = req1.text
     # Then saving the JSON data into a dictionary for easier navigation
-    res_dogs_dict = json.loads(res_dogs_json)
+    init_dict = json.loads(init_json)
     # Showing the data row-by-row in this format
-    for x, y in res_dogs_dict.items():
+    for x, y in init_dict.items():
         print(x, y)
     # This is to get a specific ID that we need. I really wanted to test my knowledge of nested lists and dictionaries.
-    return res_dogs_dict
+    return init_dict
 
 # Here we are looking at the results only for a cleaner search, then saving them as a csv format to be looked at.
 def display_data(search_dict):
     df = pd.DataFrame(search_dict["results"])
-    html = df.to_csv()
+    file_export = df.to_csv()
     print(df)
-    return html
+    return file_export
 
 # This is to run the program as a main for cleanliness sake. We're saving things too for our save as a search the person entered.
 def main():
